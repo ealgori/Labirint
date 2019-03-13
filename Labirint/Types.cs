@@ -30,7 +30,7 @@ namespace Labirint
 
     public class GetCellsResponse
     {
-        public IEnumerable<Cell> Cells;
+        public IEnumerable<Cell> Cells { get; set; }
     }
 
     [DebuggerDisplay("Direction= {Direction}: Type= {CellType}")]
