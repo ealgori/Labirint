@@ -10,3 +10,12 @@ Find exit(Q) in labirints like:
 11 1 11     1111    1    11 
 ```
 from start(R) position with 8directional moves
+
+robot has only 8 cells info about its location 
+```
+|1  |
+|1R1|
+|11Q|
+```
+
+and request environment after each move 
