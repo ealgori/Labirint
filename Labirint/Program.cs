@@ -21,7 +21,8 @@ namespace Labirint
 
             var cellsProvider = new FakeCellsProvider(map);
             IEnumerable<Cell> cells = null;
-            IRobot robot = new LocalRobot(cellsProvider);
+            IRobot robot = new Robot();
+            await ((Robot)robot).Init("тест");
 
             var mazeSolver = new MazeSolver(robot);
 
