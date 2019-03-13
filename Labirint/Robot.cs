@@ -15,7 +15,7 @@ namespace Labirint
         public async Task MoveAsync(Direction direction)
         {
             var request = new RestRequest {Method = Method.PUT, Resource = "Move"};
-            request.AddObject(new {sessionId = _sessionId, direction});
+            request.AddJsonBody(new {sessionId = _sessionId, direction});
             var completionSource = new TaskCompletionSource<IRestResponse>();
             _client.ExecuteAsync(request, x => completionSource.SetResult(x));
             var result = await completionSource.Task;
@@ -32,7 +32,7 @@ namespace Labirint
         public async Task Init(string family)
         {
             var request = new RestRequest {Method = Method.POST, Resource = "CreateSession"};
-            request.AddObject(new {family});
+            request.AddJsonBody(new {family});
             var completionSource = new TaskCompletionSource<IRestResponse>();
             _client.ExecuteAsync(request, x => completionSource.SetResult(x));
             _sessionId = _deserializer.Deserialize<SessionCreateResponse>(await completionSource.Task).SessionId;
